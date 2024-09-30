@@ -18,4 +18,37 @@ public:
     void setYear(int y)                 { year = y; }
     void setWriter(const string &w)     { writer = w; }
 
-    void print() 
+    void print() const {
+        cout << "Movie: " << title << endl;
+        cout << setw(19) << "Year released: " << year << endl;
+        cout << setw(18) << "Screenwriter: " << writer << endl;
+    }
+};
+
+void readFile(vecotr<Movie> &movies, const string &inFile);
+
+int main()
+{
+    vector<Movie> movies;
+
+    string inFile = "C:/code/Movie.txt";
+    readFile(movies, inFile);
+
+
+
+
+    return 0;
+}
+
+void readFile(vecotr<Movie> &movies, const string &inFile) {
+    ifstream file(inFile);
+    if (!file.is_open()) {
+        cout << "Error! not opened" << endl;
+        return;
+    }
+
+    string title, writer;
+    int year;
+
+
+}
