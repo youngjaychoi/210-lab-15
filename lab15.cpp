@@ -34,8 +34,10 @@ int main()
     string inFile = "C:/code/Movie.txt";
     readFile(movies, inFile);
 
-
-
+    for (size_t i = 0; i < movies.size(); ++i) {
+    movies[i].print();
+    cout << endl;
+}
 
     return 0;
 }
@@ -50,11 +52,11 @@ void readFile(vector<Movie> &movies, const string &inFile) {
     string title, writer;
     int year;
 
-    while (getline(file, writer) && file >> year && getline(file, title)) {
+    while (getline(file, writer) && file >> year && file.ignore() && getline(file, title)) {
         Movie movie;
-        movie.setTitle(title);
-        movie.setYear(year);
         movie.setWriter(writer);
+        movie.setYear(year);
+        movie.setTitle(title);
         movies.push_back(movie);
     }
 
