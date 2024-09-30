@@ -25,7 +25,7 @@ public:
     }
 };
 
-void readFile(vecotr<Movie> &movies, const string &inFile);
+void readFile(vector<Movie> &movies, const string &inFile);
 
 int main()
 {
@@ -40,7 +40,7 @@ int main()
     return 0;
 }
 
-void readFile(vecotr<Movie> &movies, const string &inFile) {
+void readFile(vector<Movie> &movies, const string &inFile) {
     ifstream file(inFile);
     if (!file.is_open()) {
         cout << "Error! not opened" << endl;
@@ -50,5 +50,13 @@ void readFile(vecotr<Movie> &movies, const string &inFile) {
     string title, writer;
     int year;
 
+    while (getline(file, writer) && file >> year && getline(file, title)) {
+        Movie movie;
+        movie.setTitle(title);
+        movie.setYear(year);
+        movie.setWriter(writer);
+        movies.push_back(movie);
+    }
 
+    file.close();
 }
