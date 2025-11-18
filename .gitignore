@@ -1,0 +1,12 @@
+# Compiled binaries
+*.exe
+*.out
+test_heap
+
+# Object files
+*.o
+*.obj
+
+# Directories
+.vscode/
+.vs/
